@@ -22,18 +22,17 @@ def random_predict(number: int = 1) -> int:
     while True:
         count += 1
         if number == predict_number:
-            break  # выход из цикла если угадали
+            break  # выход из цикла если загаданное число найдено
         elif (number > predict_number):
             minimum = predict_number
-            predict_number += (maximum-minimum)//2
+            predict_number += (maximum-minimum)//2  # изменение диапазона поиска в диапазон минимум
         else:
             maximum = predict_number
-            predict_number -= (maximum-minimum)//2
+            predict_number -= (maximum-minimum)//2  # изменение диапазона поиска в диапазон максимум
     return count
-print(f'Количество попыток: {random_predict()}')
 
 def score_game(random_predict) -> int:
-    """За какое количство попыток в среднем за 1000 подходов угадывает наш алгоритм
+    """За какое количество попыток в среднем за 1000 подходов угадывает наш алгоритм
 
     Args:
         random_predict ([type]): функция угадывания
